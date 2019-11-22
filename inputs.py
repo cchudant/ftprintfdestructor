@@ -31,6 +31,9 @@ def input_int():
 	if (choice == 3):
 		return str(0)
 
+def input_ptr():
+	return "(void *)({})".format(input_int())
+
 def input_char():
 	choice = random.choice([0, 1])
 	if (choice == 0):
@@ -41,7 +44,7 @@ def input_char():
 def random_arg():
 	format = "%"
 	data = []
-	choices = ["s", "c", "i", "d", "x", "X", "%", "u"]
+	choices = ["s", "c", "i", "d", "x", "X", "%", "u", "p"]
 
 	width = ""
 	size = ""
@@ -57,14 +60,14 @@ def random_arg():
 	if (random.random() > .5):
 		if (random.random() > .8):
 			size = ".*"
-			if (type != "%" and type != "c"):
+			if (type != "%" and type != "c" and type != "p"):
 				data.append(str(random.randint(-10, 10)))
 		else:
 			size = "." + str(random.randint(0, 5))
 	choice = random.choice([0, 1, 2])
 	if (choice == 0):
 		flags = ""
-	elif (choice == 1):
+	elif (choice == 1 or type == "p"):
 		flags = "-"
 	else:
 		flags = "0"
@@ -100,5 +103,9 @@ def random_arg():
 		format += width
 		format += size
 		data.append(input_int())
+	if (type == "p"):
+		format += flags
+		format += width
+		data.append(input_ptr())
 	format += type
 	return (format, data)
