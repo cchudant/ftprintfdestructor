@@ -13,8 +13,8 @@ TESTS = {
     "bonus_float_conversion_e": False,
     "bonus_float_conversion_g": False,
     "bonus_hashtag": True,
-    "bonus_space": False,
-    "bonus_plus": False,
+    "bonus_space": True,
+    "bonus_plus": True,
 }
 
 COMP = "gcc -Wall -Wextra -Werror -g3 -fsanitize=address "

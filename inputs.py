@@ -167,7 +167,7 @@ def random_arg(tests):
 
 	choice = random.choice([0, 1, 2])
 	if (type in "di" and tests["bonus_space"] and choice == 1):
-		flags += "#"
+		flags += " "
 	elif (type in "di" and tests["bonus_plus"] and choice == 2):
 		flags += "+"
 
