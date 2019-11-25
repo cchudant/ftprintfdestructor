@@ -5,6 +5,18 @@ import random
 
 N = 1000
 M = 20
+
+TESTS = {
+    "bonus_size_modifier": True,
+    "bonus_size_modifier_wide_char": False,
+    "bonus_float_conversion_f": False,
+    "bonus_float_conversion_e": False,
+    "bonus_float_conversion_g": False,
+    "bonus_hashtag": True,
+    "bonus_space": False,
+    "bonus_plus": False,
+}
+
 COMP = "gcc -Wall -Wextra -Werror -g3 -fsanitize=address "
 
 tests = []
@@ -27,7 +39,7 @@ def function_content():
         if (random.random() < .6):
             format += inputs.random_string(random.randint(1, 5))
         else:
-            temp = inputs.random_arg()
+            temp = inputs.random_arg(TESTS)
             format += temp[0]
             for arg in temp[1]:
                 args.append(arg)
@@ -75,8 +87,8 @@ def diff():
     ok = True
     print("Comparing outputs:")
     print()
-    ftprintf_output = open("ftprintf_output", "r").readlines()
-    printf_output = open("printf_output", "r").readlines()
+    ftprintf_output = open("ftprintf_output", "r", encoding="ISO-8859-1").readlines()
+    printf_output = open("printf_output", "r", encoding="ISO-8859-1").readlines()
     for i in range(len(tests)):
         if (ftprintf_output[i] != printf_output[i]):
             ok = False
