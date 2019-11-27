@@ -138,7 +138,7 @@ def random_arg(tests):
 			size_modifier = "l" * random.choice([1, 2])
 
 	width = ""
-	if (random.random() > .5):
+	if (random.random() > .5 and type not in "%"):
 		if (random.random() > .8):
 			width = "*"
 			data.append(str(random.randint(-10, 10)))
@@ -146,11 +146,10 @@ def random_arg(tests):
 			width = str(random.randint(1, 20))
 
 	size = ""
-	if (random.random() > .5):
+	if (random.random() > .5 and type not in  "%cp"):
 		if (random.random() > .8):
 			size = ".*"
-			if (type != "%" and type != "c" and type != "p"):
-				data.append(str(random.randint(-10, 10)))
+			data.append(str(random.randint(-10, 10)))
 		else:
 			size = "." + str(random.randint(0, 5))
 
@@ -188,7 +187,7 @@ def random_arg(tests):
 		data.append(input_char(
 				size_modifier if tests["bonus_size_modifier_wide_char"] else ""
 			))
-	if (type == "i" or type == "d"):
+	if (type in "id"):
 		format += flags
 		format += width
 		format += size
@@ -209,9 +208,6 @@ def random_arg(tests):
 		if (tests["bonus_size_modifier"]):
 			format += size_modifier
 		data.append(input_uint(size_modifier))
-	if (type == "%"):
-		data = []
-		data.append("")
 	if (type == "u"):
 		format += flags
 		format += width
@@ -233,5 +229,6 @@ def random_arg(tests):
 		format += width
 		format += size
 		data.append(input_float())
+
 	format += type
 	return (format, data)
