@@ -2,6 +2,8 @@
 
 This project is a script that generate thousands of tests for the school 42 project ft_printf.
 
+To enable bonuses, edit the `TESTS` dictionary in `run.py`.
+
 By **tmarx**
 ## Usage
 ```sh
