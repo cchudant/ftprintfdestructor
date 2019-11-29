@@ -7,14 +7,14 @@ N = 1000
 M = 20
 
 TESTS = {
-    "bonus_size_modifier": True,
+    "bonus_size_modifier": False,
     "bonus_size_modifier_wide_char": False,
     "bonus_float_conversion_f": False,
     "bonus_float_conversion_e": False,
     "bonus_float_conversion_g": False,
-    "bonus_hashtag": True,
-    "bonus_space": True,
-    "bonus_plus": True,
+    "bonus_hashtag": False,
+    "bonus_space": False,
+    "bonus_plus": False,
 }
 
 COMP = "gcc -Wall -Wextra -Werror -g3 -fsanitize=address "
