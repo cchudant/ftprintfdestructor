@@ -176,45 +176,53 @@ def random_arg(tests):
 		format += size
 		if (tests["bonus_size_modifier_wide_char"]):
 			format += size_modifier
-		data.append(input_string(
-				size_modifier if tests["bonus_size_modifier_wide_char"] else ""
-			))
+			data.append(input_string(size_modifier))
+		else:
+			data.append(input_string(""))
 	if (type == "c"):
 		format += flags
 		format += width
 		if (tests["bonus_size_modifier_wide_char"]):
 			format += size_modifier
-		data.append(input_char(
-				size_modifier if tests["bonus_size_modifier_wide_char"] else ""
-			))
+			data.append(input_char(size_modifier))
+		else:
+			data.append(input_char(""))
 	if (type in "id"):
 		format += flags
 		format += width
 		format += size
 		if (tests["bonus_size_modifier"]):
 			format += size_modifier
-		data.append(input_int(size_modifier))
+			data.append(input_int(size_modifier))
+		else:
+			data.append(input_int(""))
 	if (type == "x"):
 		format += flags
 		format += width
 		format += size
 		if (tests["bonus_size_modifier"]):
 			format += size_modifier
-		data.append(input_uint(size_modifier))
+			data.append(input_uint(size_modifier))
+		else:
+			data.append(input_uint(""))
 	if (type == "X"):
 		format += flags
 		format += width
 		format += size
 		if (tests["bonus_size_modifier"]):
 			format += size_modifier
-		data.append(input_uint(size_modifier))
+			data.append(input_uint(size_modifier))
+		else:
+			data.append(input_uint(""))
 	if (type == "u"):
 		format += flags
 		format += width
 		format += size
 		if (tests["bonus_size_modifier"]):
 			format += size_modifier
-		data.append(input_uint(size_modifier))
+			data.append(input_uint(size_modifier))
+		else:
+			data.append(input_uint(""))
 	if (type == "p"):
 		format += flags
 		format += width
